@@ -8,7 +8,7 @@ const simpleParser = Promise.promisify<any, string>(require('mailparser').simple
 
 
 
-export function getMail(imapConfig: Imap.Config, cb: (mails: any[]) => void, searchFilter: any[] = ['ALL']) {
+export function getMail(imapConfig: Imap.Config, searchFilter: any[] = ['ALL'], mailFetched: (err:Error, mails: any[]) => void, ) {
 
   let imap = new Imap(imapConfig);
 
@@ -35,7 +35,7 @@ export function getMail(imapConfig: Imap.Config, cb: (mails: any[]) => void, sea
           imap.end();
           Promise.map(parsedMails, (item) => item).then((values) => {
             // all mails are parsed now, unwrap promises and return values via cb
-            cb(values);
+            mailFetched(error, values);
           });
         });
       });

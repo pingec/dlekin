@@ -32,7 +32,7 @@ function generateBalanceRowsHtml(results: AccountBalanceReport[]) {
   return htmlChunk;
 }
 
-export function generateReport(results: AccountBalanceReport[], outPath : string) {
+export function generateReport(results: AccountBalanceReport[], outPath: string, callback: () => void) {
 
   fs.readFile("template.html", 'utf8', function (err, data) {
     if (err) {
@@ -70,6 +70,7 @@ export function generateReport(results: AccountBalanceReport[], outPath : string
 
     fs.writeFile("generated.html", $.html(), 'utf8', function (err) {
       if (err) throw err;
+      callback();
     });
   });
 
