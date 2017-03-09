@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "bin",
+        "rootDir": "src",
+        //where to look for type definitions, these can be installed via npm install @types/<typedefname> --save
+        "typeRoots": [ "node_modules/@types" ]
+    }
+}

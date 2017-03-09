@@ -1,0 +1,13 @@
+# Private stuff
+private/
+
+# Private settings / login credentials
+config.js
+
+# VSCode settings
+.vscode/
+
+# Generated files
+generated.html
+page.jpg
+
