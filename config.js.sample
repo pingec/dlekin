@@ -1,0 +1,19 @@
+//imap access settings
+module.exports = {
+    imap: { //do not data structure
+        user: "john.smith@gmail.com",
+        password: "password",
+        host: 'imap.gmail.com',
+        port: 993,
+        tls: true
+    },
+    imapSearchFilter: ['FROM', 'matej.drolc@pingec.si'],
+    imageExport: {
+        command: "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe",
+        in: "generated.html", //url or file path
+        out: "page.jpg",
+        width: "758",
+        height: "1024",
+        zoom: "1.5"
+    }
+};
