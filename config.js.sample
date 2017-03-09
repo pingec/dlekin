@@ -1,6 +1,7 @@
 //imap access settings
 module.exports = {
-    imap: { //do not data structure
+    imap: { 
+        // do not modify data structure
         user: "john.smith@gmail.com",
         password: "password",
         host: 'imap.gmail.com',
@@ -8,12 +9,22 @@ module.exports = {
         tls: true
     },
     imapSearchFilter: ['FROM', 'matej.drolc@pingec.si'],
+    htmlExport: {
+        out: "generated.html"
+    },
     imageExport: {
         command: "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe",
-        in: "generated.html", //url or file path
+        // url or file path
+        in: "generated.html", 
         out: "page.jpg",
         width: "758",
         height: "1024",
         zoom: "1.5"
+    },
+    grayscaleConvert: {
+        command: "C:\\Users\\pingo\\Downloads\\ImageMagick-7.0.5-2-portable-Q16-x86\\convert.exe",
+        in: "page.jpg",
+        // this is the final output that will be served via http
+        out: "bg_medium_ss00.png"
     }
 };

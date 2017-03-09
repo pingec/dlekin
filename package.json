@@ -20,15 +20,17 @@
     "start": "node ./bin/main.js"
   },
   "dependencies": {
-    "@types/node": "^7.0.5",
-    "bluebird": "^3.5.0",
+    "@types/imap": "^0.8.28",
     "cheerio": "^0.22.0",
     "imap": "^0.8.19",
     "mailparser": "^2.0.2",
     "moment": "^2.17.1"
   },
   "devDependencies": {
-    "typescript": "^2.2.1"
+    "typescript": "^2.2.1",
+    "@types/imap": "^0.8.28",
+    "@types/jimp": "^0.2.0",
+    "@types/node": "^7.0.5"
   },
   "license": "MIT"
 }
