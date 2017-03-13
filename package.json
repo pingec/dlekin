@@ -20,7 +20,9 @@
     "start": "node ./bin/main.js"
   },
   "dependencies": {
+    "@types/bluebird": "^3.5.0",
     "@types/imap": "^0.8.28",
+    "bluebird": "^3.5.0",
     "cheerio": "^0.22.0",
     "imap": "^0.8.19",
     "mailparser": "^2.0.2",
