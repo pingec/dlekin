@@ -1,0 +1,50 @@
+{
+	"comment001": "dlekin 0.1.0",
+	"comment002": "https://github.com/pingec/dlekin",
+	"comment003": "menu to check/start/stop dlekin extension",
+	"items": [
+	{
+		"name": "dlekin",
+		"priority": -1,
+		"items": [
+		{
+			"name": "Show status",
+			"action": "./bin/dlekin.sh",
+			"params": "dlekin_status",
+			"exitmenu": false,
+			"checked": false,
+			"refresh": false,
+			"status": false,
+			"internal": "status Print status of dlekin script"
+		},
+		{
+			"name": "Start dlekin",
+			"action": "./bin/dlekin.sh",
+			"params": "dlekin_start",
+			"exitmenu": false,
+			"checked": false,
+			"refresh": false,
+			"status": false,
+			"internal": "status Start dlekin script"
+		},
+		{
+			"name": "Stop dlekin",
+			"action": "./bin/dlekin.sh",
+			"params": "dlekin_stop",
+			"exitmenu": false,
+			"refresh": false,
+			"status": false,
+			"internal": "status Stop dlekin script"
+		},
+		{
+			"name": "About",
+			"action": ":",
+			"exitmenu": false,
+			"refresh": false,
+			"status": false,
+			"internal": "status https://github.com/pingec/dlekin by matej.drolc@pingec.si"
+		}
+		]
+	}
+	]
+}

@@ -14,17 +14,15 @@ module.exports = {
     },
     imageExport: {
         command: "C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe",
-        // url or file path
-        in: "generated.html", 
-        out: "page.jpg",
-        width: "758",
-        height: "1024",
-        zoom: "1.5"
+        args:"--zoom 1.5 --height 1024 --width 758 --quality 100 --disable-smart-width --load-error-handling ignore {input} {output}",
+        input:"generated.html",
+        output:"page.jpg"
     },
     grayscaleConvert: {
         command: "C:\\Users\\pingo\\Downloads\\ImageMagick-7.0.5-2-portable-Q16-x86\\convert.exe",
-        in: "page.jpg",
+        args:"{input} -colors 16 -colorspace Gray {output}",
+        input: "page.jpg",
         // this is the final output that will be served via http
-        out: "bg_medium_ss00.png"
+        output: "bg_medium_ss00.png"
     }
 };
