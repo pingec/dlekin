@@ -3,30 +3,22 @@ import { execFile } from "child_process";
 
 export function generateImage(imgConfig, grayscaleConfig, imageGenerated: (err: Error, data: string) => void) {
 
-    let input = imgConfig.in;
-    let output = imgConfig.out;
-    let cmd = imgConfig.command;
+    let input = imgConfig.input;
+    let output = imgConfig.output;
+    let cmd: string = imgConfig.command
+    let args: string = <string>imgConfig.args;
+    args = args.replace("{input}", input).replace("{output}", output);
 
-    let args = ["--zoom", imgConfig.zoom,
-        "--height", imgConfig.height,
-        "--width", imgConfig.width,
-        "--quality", "100",
-        "--disable-smart-width",
-        input,
-        output];
-
-    execFile(cmd, args, (error, stdout, stderr) => {
+    execFile(cmd, args.split(" "), (error, stdout, stderr) => {
         if (error) imageGenerated(error, null);
 
-        let input = grayscaleConfig.in;
-        let output = grayscaleConfig.out;
-        let cmd = grayscaleConfig.command;
-        let args = [input,
-            "-colors", "16",
-            "-colorspace", "Gray",
-            output];
+        let input = grayscaleConfig.input;
+        let output = grayscaleConfig.output;
+        let cmd: string = grayscaleConfig.command;
+        let args: string = grayscaleConfig.args;
+        args = args.replace("{input}", input).replace("{output}", output);
 
-        execFile(cmd, args, (error: any, stdout: any, stderr: any) => {
+        execFile(cmd, args.split(" "), (error: any, stdout: any, stderr: any) => {
             imageGenerated(error, output);
         });
     });

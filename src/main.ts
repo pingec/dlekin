@@ -18,12 +18,12 @@ http.createServer(function (req, res) {
   let request = url.parse(req.url, true);
   let action = request.pathname;
 
-  if (action == '/' + config.grayscaleConvert.out) {
+  if (action == '/' + config.grayscaleConvert.output) {
 
     generateAll((error, data) => {
       if(error) throw error;
 
-      let imgName = data; // should be equal to config.grayscaleConvert.out
+      let imgName = data; // should be equal to config.grayscaleConvert.output
       let img = fs.readFileSync(imgName);
       res.writeHead(200, { 'Content-Type': 'image/png' });
       res.end(img, 'binary');
@@ -42,7 +42,7 @@ function generateAll(imageGenerated: (err: Error, data:string) => void) {
   mail.getMail(imapConfig, config.imapSearchFilter, (error, mails) => {
     let results = reporter.getBalances(mails);
 
-    reporter.generateReport(results, config.htmlExport.out, () => {
+    reporter.generateReport(results, config.htmlExport.output, () => {
 
       htmlToImage.generateImage(config.imageExport, config.grayscaleConvert, (error, data) => {
         imageGenerated(error, data);

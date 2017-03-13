@@ -17,3 +17,11 @@ The following dependecies must be preinstalled:
 1. ```npm start``` to start /bin/main.js
 
 If for any reason tsc fails during those steps you can also try using a globally installed tsc or VSCode for compilation (check the compile script inside package.json to see how it is called from npm or buildtsc task inside .vscode/tasks.json to see how vscode compiles it).
+
+##Notes
+
+Useful with imap problems: http://stackoverflow.com/questions/20337040/gmail-smtp-debug-error-please-log-in-via-your-web-browser
+
+Headless debian Jessie requires:
+Node v6.x (7 is problematic)
+xvfb-run -- /usr/local/bin/wkhtmltoimage --zoom 1.5 --height 1024 --width 758 --quality 100 --disable-smart-width generated.html page.jpg
