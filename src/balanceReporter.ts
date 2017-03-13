@@ -66,7 +66,7 @@ export function generateReport(results: AccountBalanceReport[], outPath: string,
     // set timestamp in footer
     let footerTimestamp = $(".footer-timestamp");
     footerTimestamp.empty();
-    footerTimestamp.text(`Generirano: ${moment().format("D/M/YYYY H:m")}`);
+    footerTimestamp.text(`Generirano: ${moment().format("D/M/YYYY H:mm")}`);
 
     fs.writeFile("generated.html", $.html(), 'utf8', function (err) {
       if (err) throw err;
